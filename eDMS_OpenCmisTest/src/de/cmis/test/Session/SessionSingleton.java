@@ -1,7 +1,6 @@
 package de.cmis.test.Session;
 
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
 
@@ -20,8 +19,8 @@ public class SessionSingleton {
 	private static final String OCS_CONST_PWD = "";
 	private static final String OCS_CONST_BINDING = "http://localhost:8089/chemistry-opencmis-server-inmemory-1.1.0/";
 	private static final String ALF_CONST_USER = "admin";
-	private static final String ALF_CONST_PWD = "Lanuv11";
-	private static final String ALF_CONST_BINDING = "http://localhost:8080/alfresco/api/-default-/cmis/versions/1.1/";
+	private static final String ALF_CONST_PWD = "Lanuv1111";
+	private static final String ALF_CONST_BINDING = "http://localhost:8080/alfresco/api/-default-/cmis/versions/";
 
 	private SessionSingleton() {
 	} // privater Konstruktor mit Zugriffsschutz von außen
@@ -42,12 +41,19 @@ public class SessionSingleton {
 		if (serverName.equals("Alfresco")) {
 			user = ALF_CONST_USER;
 			pwd = ALF_CONST_PWD;
-			binding = ALF_CONST_BINDING;
+			if (bindingType.equals("atom")) {
+				binding = ALF_CONST_BINDING + "1.0/atom";
+			} else if (bindingType.equals("atom11")) {
+				binding = ALF_CONST_BINDING + "1.1/atom";
+			}
+			
 		} else if (serverName.equals("OpenCmisServer")) {
 			user = OCS_CONST_USER;
 			pwd = OCS_CONST_PWD;
-			binding = OCS_CONST_BINDING;
+			binding = OCS_CONST_BINDING + bindingType;
 		}
+		
+		System.out.println("Binding: " + binding);
 
 		Session session = null;
 
@@ -57,10 +63,10 @@ public class SessionSingleton {
 		parameters.put(SessionParameter.USER, user);
 		parameters.put(SessionParameter.PASSWORD, pwd);
 		if (bindingType.contains("atom")) {
-			parameters.put(SessionParameter.ATOMPUB_URL, binding + bindingType);
+			parameters.put(SessionParameter.ATOMPUB_URL, binding);
 			parameters.put(SessionParameter.BINDING_TYPE, BindingType.ATOMPUB.value());
 		} else if (bindingType.contains("browser")) {
-			parameters.put(SessionParameter.BROWSER_URL, binding + bindingType);
+			parameters.put(SessionParameter.BROWSER_URL, binding);
 			parameters.put(SessionParameter.BINDING_TYPE, BindingType.BROWSER.value());
 		}
 		parameters.put(SessionParameter.COMPRESSION, "true");
@@ -71,7 +77,7 @@ public class SessionSingleton {
 		List<Repository> repositories = sessionFactory.getRepositories(parameters);
 		Repository defaultRepository = null;
 		if (repositories != null && repositories.size() > 0) {
-			System.out.println("Found (" + repositories.size() + ") Alfresco repositories");
+			System.out.println("Found (" + repositories.size() + ") repositories");
 			defaultRepository = repositories.get(0);
 			System.out.println("Info about the first OpenCmisServer repo [ID=" + defaultRepository.getId() + "][name="
 					+ defaultRepository.getName() + "][CMIS ver supported="

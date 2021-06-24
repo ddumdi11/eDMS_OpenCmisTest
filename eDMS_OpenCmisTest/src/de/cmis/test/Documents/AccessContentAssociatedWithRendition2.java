@@ -1,4 +1,4 @@
-package com.sample.util.Browser.Renditions;
+package de.cmis.test.Documents;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,10 +6,11 @@ import java.util.List;
 import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Rendition;
 import org.apache.chemistry.opencmis.client.api.Session;
+import org.apache.chemistry.opencmis.commons.data.ContentStream;
 
 import de.cmis.test.Session.SessionSingleton;
 
-public class GetRenditionAttributes1 {
+public class AccessContentAssociatedWithRendition2 {
 
 	
 
@@ -26,7 +27,9 @@ public class GetRenditionAttributes1 {
 		}
 
 		for (Rendition rendition : renditions) {
-			System.out.println(rendition);
+			Document rendtionDocument = rendition.getRenditionDocument();
+			ContentStream contentStream = rendtionDocument.getContentStream();
+
 		}
 
 	}

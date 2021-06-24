@@ -1,17 +1,16 @@
-package com.sample.util.Browser.Renditions;
+package de.cmis.test.Documents;
 
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.chemistry.opencmis.client.api.CmisObject;
 import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Rendition;
 import org.apache.chemistry.opencmis.client.api.Session;
 
 import de.cmis.test.Session.SessionSingleton;
 
-public class GetRenditionAttributes1 {
-
-	
+public class AccessContentAssociatedWithRendition3 {
 
 	public static void main(String args[]) throws IOException {
 		Session session = SessionSingleton.getInstance().getSession("OpenCmisServer", "atom11");
@@ -26,7 +25,13 @@ public class GetRenditionAttributes1 {
 		}
 
 		for (Rendition rendition : renditions) {
-			System.out.println(rendition);
+			String renditionDocId = rendition.getRenditionDocumentId();
+
+			if (renditionDocId == null) {
+				continue;
+			}
+
+			CmisObject cmisObject = session.getObject(renditionDocId);
 		}
 
 	}
