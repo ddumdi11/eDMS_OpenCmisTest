@@ -1,4 +1,4 @@
-package com.sample.util.Browser.Renditions;
+package de.cmis.test.Renditions;
 
 import java.io.IOException;
 import java.util.List;

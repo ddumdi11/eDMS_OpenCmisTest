@@ -1,4 +1,4 @@
-package com.sample.util.Browser.ItemsRelationshipsPolicies;
+package de.cmis.test.ItemsRelationshipsPolicies;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -9,31 +9,14 @@ import org.apache.chemistry.opencmis.client.api.Folder;
 import org.apache.chemistry.opencmis.client.api.ObjectId;
 import org.apache.chemistry.opencmis.client.api.Policy;
 import org.apache.chemistry.opencmis.client.api.Session;
-import org.apache.chemistry.opencmis.client.api.SessionFactory;
 import org.apache.chemistry.opencmis.client.runtime.ObjectIdImpl;
-import org.apache.chemistry.opencmis.client.runtime.SessionFactoryImpl;
 import org.apache.chemistry.opencmis.commons.PropertyIds;
-import org.apache.chemistry.opencmis.commons.SessionParameter;
-import org.apache.chemistry.opencmis.commons.enums.BindingType;
+
+import de.cmis.test.Session.SessionSingleton;
 
 public class ApplyPolicyToObject {
 
-	private static String serverURL = "http://localhost:8089/chemistry-opencmis-server-inmemory-1.1.0/browser";
-	private static String repositoryId = "A1";
-
-	private static Session getSession() {
-		Map<String, String> parameters = new HashMap<>();
-		parameters.put(SessionParameter.BINDING_TYPE, BindingType.BROWSER.value());
-
-		parameters.put(SessionParameter.USER, "");
-		parameters.put(SessionParameter.PASSWORD, "");
-
-		parameters.put(SessionParameter.REPOSITORY_ID, repositoryId);
-		parameters.put(SessionParameter.BROWSER_URL, serverURL);
-
-		SessionFactory sessionFactory = SessionFactoryImpl.newInstance();
-		return sessionFactory.createSession(parameters);
-	}
+	
 
 	private static void printPolicy(Policy policy) {
 		System.out.println("Created By : " + policy.getCreatedBy());
@@ -45,8 +28,7 @@ public class ApplyPolicyToObject {
 	}
 
 	public static void main(String args[]) throws IOException {
-
-		Session session = getSession();
+		Session session = SessionSingleton.getInstance().getSession("OpenCmisServer", "atom11");
 
 		Map<String, Object> properties = new HashMap<String, Object>();
 		properties.put(PropertyIds.NAME, "a new unfiled policy");

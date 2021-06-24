@@ -1,4 +1,4 @@
-package com.sample.util.Browser.ItemsRelationshipsPolicies;
+package de.cmis.test.ItemsRelationshipsPolicies;
 
 import java.io.IOException;
 import java.util.GregorianCalendar;
@@ -9,30 +9,11 @@ import org.apache.chemistry.opencmis.client.api.CmisObject;
 import org.apache.chemistry.opencmis.client.api.ObjectId;
 import org.apache.chemistry.opencmis.client.api.Relationship;
 import org.apache.chemistry.opencmis.client.api.Session;
-import org.apache.chemistry.opencmis.client.api.SessionFactory;
-import org.apache.chemistry.opencmis.client.runtime.SessionFactoryImpl;
 import org.apache.chemistry.opencmis.commons.PropertyIds;
-import org.apache.chemistry.opencmis.commons.SessionParameter;
-import org.apache.chemistry.opencmis.commons.enums.BindingType;
+
+import de.cmis.test.Session.SessionSingleton;
 
 public class CreateRelationship {
-
-	private static String serverURL = "http://localhost:8089/chemistry-opencmis-server-inmemory-1.1.0/browser";
-	private static String repositoryId = "A1";
-
-	private static Session getSession() {
-		Map<String, String> parameters = new HashMap<>();
-		parameters.put(SessionParameter.BINDING_TYPE, BindingType.BROWSER.value());
-
-		parameters.put(SessionParameter.USER, "");
-		parameters.put(SessionParameter.PASSWORD, "");
-
-		parameters.put(SessionParameter.REPOSITORY_ID, repositoryId);
-		parameters.put(SessionParameter.BROWSER_URL, serverURL);
-
-		SessionFactory sessionFactory = SessionFactoryImpl.newInstance();
-		return sessionFactory.createSession(parameters);
-	}
 
 	private static ObjectId createRelationShip(Session session, String sourceId, String targetId) {
 		Map<String, Object> properties = new HashMap<String, Object>();
@@ -62,8 +43,7 @@ public class CreateRelationship {
 	}
 
 	public static void main(String args[]) throws IOException {
-
-		Session session = getSession();
+		Session session = SessionSingleton.getInstance().getSession("OpenCmisServer", "atom11");
 
 		CmisObject folder1 = session.getObjectByPath("/My_Folder-0-0");
 		CmisObject folder2 = session.getObjectByPath("/My_Folder-0-1");
