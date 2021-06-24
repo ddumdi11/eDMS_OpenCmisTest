@@ -1,0 +1,30 @@
+package de.cmis.test.IntroductionCmis;
+
+import java.util.Map;
+
+import org.apache.chemistry.opencmis.client.api.Folder;
+import org.apache.chemistry.opencmis.client.api.FolderType;
+import org.apache.chemistry.opencmis.client.api.Session;
+import org.apache.chemistry.opencmis.commons.definitions.PropertyDefinition;
+
+import de.cmis.test.Session.SessionSingleton;
+
+public class GetPropertyDefinitionsOfType {
+
+	public static void main(String args[]) {
+		Session session = SessionSingleton.getInstance().getSession("OpenCmisServer", "atom11");
+
+		Folder folder = session.getRootFolder();
+
+		FolderType folderType = folder.getFolderType();
+
+		Map<String, PropertyDefinition<?>> propertyDefintions = folderType.getPropertyDefinitions();
+
+		for (String key : propertyDefintions.keySet()) {
+			PropertyDefinition propDefinition = propertyDefintions.get(key);
+			System.out.println(propDefinition);
+		}
+
+	}
+
+}
