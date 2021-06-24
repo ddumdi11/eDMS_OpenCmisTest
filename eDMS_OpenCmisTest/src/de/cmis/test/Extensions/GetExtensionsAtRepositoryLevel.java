@@ -6,6 +6,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.CmisExtensionElement;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetExtensionsAtRepositoryLevel {
@@ -18,7 +19,7 @@ public class GetExtensionsAtRepositoryLevel {
 			if (extensionChildren == null || extensionChildren.isEmpty()) {
 				String name = extension.getName();
 				String value = extension.getValue();
-				System.out.println(name + " : " + value);
+				Tool.printAndLog(name + " : " + value);
 
 			} else {
 				printExtensions(extensionChildren, space + " ");
@@ -34,7 +35,7 @@ public class GetExtensionsAtRepositoryLevel {
 		List<CmisExtensionElement> extensions = repoInfo.getExtensions();
 
 		if (extensions == null) {
-			System.out.println("Repository do not have extensions");
+			Tool.printAndLog("Repository do not have extensions");
 			return;
 		}
 		printExtensions(extensions, " ");

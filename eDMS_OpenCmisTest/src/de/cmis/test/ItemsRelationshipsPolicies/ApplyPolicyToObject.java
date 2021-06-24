@@ -12,6 +12,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.client.runtime.ObjectIdImpl;
 import org.apache.chemistry.opencmis.commons.PropertyIds;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class ApplyPolicyToObject {
@@ -19,11 +20,11 @@ public class ApplyPolicyToObject {
 	
 
 	private static void printPolicy(Policy policy) {
-		System.out.println("Created By : " + policy.getCreatedBy());
-		System.out.println("Description : " + policy.getDescription());
-		System.out.println("Name : " + policy.getName());
-		System.out.println("Policy Text : " + policy.getPolicyText());
-		System.out.println("Policy Id : " + policy.getId());
+		Tool.printAndLog("Created By : " + policy.getCreatedBy());
+		Tool.printAndLog("Description : " + policy.getDescription());
+		Tool.printAndLog("Name : " + policy.getName());
+		Tool.printAndLog("Policy Text : " + policy.getPolicyText());
+		Tool.printAndLog("Policy Id : " + policy.getId());
 
 	}
 
@@ -39,14 +40,14 @@ public class ApplyPolicyToObject {
 
 		Policy policy = (Policy) session.getObject(policyId);
 
-		System.out.println("Applying policy to the folder : '/My_Folder-0-0'");
+		Tool.printAndLog("Applying policy to the folder : '/My_Folder-0-0'");
 		Folder folder = (Folder) session.getObjectByPath("/My_Folder-0-0");
 		session.applyPolicy(new ObjectIdImpl(folder.getId()), new ObjectIdImpl(policy.getId()));
 
 		List<Policy> policies = folder.getPolicies();
 
 		if (policies == null) {
-			System.out.println("No policies applied on this object");
+			Tool.printAndLog("No policies applied on this object");
 			return;
 		}
 

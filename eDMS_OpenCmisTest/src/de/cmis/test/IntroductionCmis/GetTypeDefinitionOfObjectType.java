@@ -3,6 +3,7 @@ package de.cmis.test.IntroductionCmis;
 import org.apache.chemistry.opencmis.client.api.ObjectType;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetTypeDefinitionOfObjectType {
@@ -12,7 +13,7 @@ public class GetTypeDefinitionOfObjectType {
 
 		ObjectType objectType = session.getTypeDefinition("cmis:document");
 
-		System.out.println(objectType);
+		Tool.printAndLog(objectType.toString());
 	}
 
 }

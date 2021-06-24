@@ -6,6 +6,7 @@ import org.apache.chemistry.opencmis.client.api.ItemIterable;
 import org.apache.chemistry.opencmis.client.api.ObjectType;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CheckRelationshipSupport {
@@ -16,7 +17,7 @@ public class CheckRelationshipSupport {
 		ItemIterable<ObjectType> objectTypes = session.getTypeChildren(null, false);
 
 		for (ObjectType objectType : objectTypes) {
-			System.out.println(objectType.getId());
+			Tool.printAndLog(objectType.getId());
 		}
 
 	}

@@ -9,6 +9,7 @@ import org.apache.chemistry.opencmis.client.api.Item;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.PropertyIds;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CreateItemCustomType {
@@ -26,8 +27,8 @@ public class CreateItemCustomType {
 
 		Item item = folder.createItem(properties);
 
-		System.out.println((PropertyIds.NAME + ": " + item.getPropertyValue(PropertyIds.NAME)));
-		System.out.println((PropertyIds.OBJECT_TYPE_ID + ": " + item.getPropertyValue(PropertyIds.OBJECT_TYPE_ID)));
+		Tool.printAndLog((PropertyIds.NAME + ": " + item.getPropertyValue(PropertyIds.NAME)));
+		Tool.printAndLog((PropertyIds.OBJECT_TYPE_ID + ": " + item.getPropertyValue(PropertyIds.OBJECT_TYPE_ID)));
 
 	}
 

@@ -4,6 +4,7 @@ import org.apache.chemistry.opencmis.client.api.ItemIterable;
 import org.apache.chemistry.opencmis.client.api.ObjectType;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class TestCmisGetBasicTypes {
@@ -15,7 +16,7 @@ public class TestCmisGetBasicTypes {
 		ItemIterable<ObjectType> baseTypes = session.getTypeChildren(null, false);
 
 		for (ObjectType objectType : baseTypes) {
-			System.out.println(objectType);
+			Tool.printAndLog(objectType.toString());
 		}
 
 	}

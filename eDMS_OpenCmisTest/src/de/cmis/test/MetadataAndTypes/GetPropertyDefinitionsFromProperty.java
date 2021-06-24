@@ -9,6 +9,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.definitions.PropertyDefinition;
 import org.apache.chemistry.opencmis.commons.enums.PropertyType;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetPropertyDefinitionsFromProperty {
@@ -16,8 +17,8 @@ public class GetPropertyDefinitionsFromProperty {
 	public static void printPropertyDefinitions(Map<String, PropertyDefinition<?>> propertyDefinitions) {
 
 		for (String key : propertyDefinitions.keySet()) {
-			System.out.println("Property definitions for the property : " + key);
-			System.out.println("************************************************");
+			Tool.printAndLog("Property definitions for the property : " + key);
+			Tool.printAndLog("************************************************");
 
 			PropertyDefinition<?> propertyDefinition = propertyDefinitions.get(key);
 
@@ -28,12 +29,12 @@ public class GetPropertyDefinitionsFromProperty {
 			String queryName = propertyDefinition.getQueryName();
 			PropertyType propertyType = propertyDefinition.getPropertyType();
 
-			System.out.println("description = " + description);
-			System.out.println("displayName = " + displayName);
-			System.out.println("id = " + id);
-			System.out.println("localName = " + localName);
-			System.out.println("queryName = " + queryName);
-			System.out.println("propertyType = " + propertyType);
+			Tool.printAndLog("description = " + description);
+			Tool.printAndLog("displayName = " + displayName);
+			Tool.printAndLog("id = " + id);
+			Tool.printAndLog("localName = " + localName);
+			Tool.printAndLog("queryName = " + queryName);
+			Tool.printAndLog("propertyType = " + propertyType);
 
 		}
 	}

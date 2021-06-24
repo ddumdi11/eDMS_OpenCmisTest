@@ -3,6 +3,7 @@ package de.cmis.test.RepositoryCapabilities;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CheckVersioningCapabilities {
@@ -15,11 +16,11 @@ public class CheckVersioningCapabilities {
 		Boolean isVersionSpecificFilingSupported = repoInfo.getCapabilities().isVersionSpecificFilingSupported();
 
 		if (isVersionSpecificFilingSupported == null) {
-			System.out.println("Repository does not provide this value");
+			Tool.printAndLog("Repository does not provide this value");
 		} else if (isVersionSpecificFilingSupported) {
-			System.out.println("Repository is supporting version specific filing");
+			Tool.printAndLog("Repository is supporting version specific filing");
 		} else {
-			System.out.println("Repository is not supporting version specific filing");
+			Tool.printAndLog("Repository is not supporting version specific filing");
 		}
 	}
 

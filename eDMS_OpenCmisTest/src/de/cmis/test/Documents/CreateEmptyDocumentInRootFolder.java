@@ -1,14 +1,11 @@
 package de.cmis.test.Documents;
 
 import java.util.HashMap;
-
 import java.util.Map;
 
 import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Folder;
 import org.apache.chemistry.opencmis.client.api.Session;
-
-import com.sun.tools.javac.Main;
 
 import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
@@ -26,9 +23,9 @@ public class CreateEmptyDocumentInRootFolder {
 			Document toDeleteDoc = (Document) session.getObjectByPath("/emptyDocument.txt");
 			Tool.printAndLog("Dokument vorhanden + wird gelöscht.");
 			toDeleteDoc.delete();
-			System.out.println("Dokument erfolgreich gelöscht.");
+			Tool.printAndLog("Dokument erfolgreich gelöscht.");
 		} catch (Exception e) {
-			System.out.println("Dokument entweder nicht vorhanden oder ein anderer Fehler ...");
+			Tool.printAndLog("Dokument entweder nicht vorhanden oder ein anderer Fehler ...");
 		}
 
 		Map<String, String> properties = new HashMap<>();
@@ -37,7 +34,7 @@ public class CreateEmptyDocumentInRootFolder {
 
 		Document document = rootFolder.createDocument(properties, null, null);
 
-		System.out.println("Name Of the Document " + document.getName());
-		System.out.println("Path Of the Document " + document.getPaths().get(0));
+		Tool.printAndLog("Name Of the Document " + document.getName());
+		Tool.printAndLog("Path Of the Document " + document.getPaths().get(0));
 	}
 }

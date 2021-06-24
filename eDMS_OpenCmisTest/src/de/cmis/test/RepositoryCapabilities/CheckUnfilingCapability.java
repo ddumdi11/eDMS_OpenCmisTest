@@ -3,6 +3,7 @@ package de.cmis.test.RepositoryCapabilities;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CheckUnfilingCapability {
@@ -15,11 +16,11 @@ public class CheckUnfilingCapability {
 		Boolean isUnfilingSupported = repoInfo.getCapabilities().isUnfilingSupported();
 
 		if (isUnfilingSupported == null) {
-			System.out.println("Repository does not provide this value");
+			Tool.printAndLog("Repository does not provide this value");
 		} else if (isUnfilingSupported) {
-			System.out.println("Repository is supporting unfiling");
+			Tool.printAndLog("Repository is supporting unfiling");
 		} else {
-			System.out.println("Repository is not supporting unfiling");
+			Tool.printAndLog("Repository is not supporting unfiling");
 		}
 	}
 

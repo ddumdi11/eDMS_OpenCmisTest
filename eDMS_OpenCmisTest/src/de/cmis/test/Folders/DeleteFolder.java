@@ -6,6 +6,7 @@ import org.apache.chemistry.opencmis.client.api.Folder;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.exceptions.CmisObjectNotFoundException;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class DeleteFolder {
@@ -17,16 +18,16 @@ public class DeleteFolder {
 
 		Folder folder = (Folder) session.getObjectByPath("/My_Folder-0-0");
 
-		System.out.println("Name Of the Folder : " + folder.getName());
-		System.out.println("Deleting the folder : " + folder.getName());
+		Tool.printAndLog("Name Of the Folder : " + folder.getName());
+		Tool.printAndLog("Deleting the folder : " + folder.getName());
 
 		folder.deleteTree(true, null, true);
 
 		try {
 			folder.refresh();
 		} catch (CmisObjectNotFoundException e) {
-			System.out.println("Folder is deleted : " + folder.getName());
-			System.out.println(e.getMessage());
+			Tool.printAndLog("Folder is deleted : " + folder.getName());
+			Tool.printAndLog(e.getMessage());
 		}
 
 	}

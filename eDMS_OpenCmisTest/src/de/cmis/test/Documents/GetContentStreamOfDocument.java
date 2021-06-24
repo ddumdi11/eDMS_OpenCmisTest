@@ -15,6 +15,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.client.runtime.repository.ObjectFactoryImpl;
 import org.apache.chemistry.opencmis.commons.data.ContentStream;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetContentStreamOfDocument {
@@ -51,8 +52,8 @@ public class GetContentStreamOfDocument {
 				System.out.print(str);
 			}
 		} catch (IOException e) {
-			System.out.println("Error occurred while processing the file content");
-			System.out.println(e.getMessage());
+			Tool.printAndLog("Error occurred while processing the file content");
+			Tool.printAndLog(e.getMessage());
 		}
 
 	}

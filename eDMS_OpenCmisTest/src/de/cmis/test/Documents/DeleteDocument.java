@@ -10,6 +10,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.enums.Action;
 import org.apache.chemistry.opencmis.commons.exceptions.CmisObjectNotFoundException;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class DeleteDocument {
@@ -22,8 +23,8 @@ public class DeleteDocument {
 
 		Document document = folder.createDocument(properties, null, null);
 
-		System.out.println("Name Of the Document " + document.getName());
-		System.out.println("Path Of the Document " + document.getPaths().get(0));
+		Tool.printAndLog("Name Of the Document " + document.getName());
+		Tool.printAndLog("Path Of the Document " + document.getPaths().get(0));
 	}
 
 	public static void main(String args[]) throws IOException {
@@ -35,11 +36,11 @@ public class DeleteDocument {
 
 		Document document = (Document) session.getObjectByPath("/Hello.txt");
 
-		System.out.println("Document Name : " + document.getName());
+		Tool.printAndLog("Document Name : " + document.getName());
 
 		/* Checking for permissions, whether user has permission to delete or not. */
 		if (!document.getAllowableActions().getAllowableActions().contains(Action.CAN_DELETE_OBJECT)) {
-			System.out.println("User don't have permission to delete the object");
+			Tool.printAndLog("User don't have permission to delete the object");
 		}
 
 		document.delete();
@@ -47,8 +48,8 @@ public class DeleteDocument {
 		try {
 			document.refresh();
 		} catch (CmisObjectNotFoundException e) {
-			System.out.println("Document is deleted");
-			System.out.println(e.getMessage());
+			Tool.printAndLog("Document is deleted");
+			Tool.printAndLog(e.getMessage());
 		}
 
 	}

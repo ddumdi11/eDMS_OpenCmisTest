@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.chemistry.opencmis.client.api.Repository;
 
+import de.cmis.test.Tool;
+
 public class Test {
 
 	public static void main(String args[]) {
@@ -15,7 +17,7 @@ public class Test {
 		List<Repository> repositories = repoUtil.getAllRepositories();
 
 		for (Repository repository : repositories) {
-			System.out.println(repository.getName());
+			Tool.printAndLog(repository.getName());
 		}
 
 	}

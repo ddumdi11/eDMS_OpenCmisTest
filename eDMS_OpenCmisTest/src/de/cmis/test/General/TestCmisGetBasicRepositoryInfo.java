@@ -14,6 +14,8 @@ import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 import org.apache.chemistry.opencmis.commons.definitions.PermissionDefinition;
 import org.apache.chemistry.opencmis.commons.enums.BindingType;
 
+import de.cmis.test.Tool;
+
 public class TestCmisGetBasicRepositoryInfo {
 
 	public static List<Repository> getRepositories(String serverURL) {
@@ -31,34 +33,34 @@ public class TestCmisGetBasicRepositoryInfo {
 	}
 
 	public static void printRepositoryInformation(RepositoryInfo repositoryInfo) {
-		System.out.println("******************************************************");
-		System.out.println("Id : " + repositoryInfo.getId());
-		System.out.println("Cmis Version Supported : " + repositoryInfo.getCmisVersionSupported());
-		System.out.println("Description : " + repositoryInfo.getDescription());
-		System.out.println("Latest Change log token : " + repositoryInfo.getLatestChangeLogToken());
-		System.out.println("Name : " + repositoryInfo.getName());
-		System.out.println("Principal ID of authenticated user : " + repositoryInfo.getPrincipalIdAnonymous());
-		System.out.println("Principal ID for unauthenticated user " + repositoryInfo.getPrincipalIdAnyone());
-		System.out.println("Product Name : " + repositoryInfo.getProductName());
-		System.out.println("Product Version : " + repositoryInfo.getProductVersion());
-		System.out.println("Root Folder Id : " + repositoryInfo.getRootFolderId());
-		System.out.println("URL of a web interface for this repository : " + repositoryInfo.getThinClientUri());
-		System.out.println("Vendor Name : " + repositoryInfo.getVendorName());
+		Tool.printAndLog("******************************************************");
+		Tool.printAndLog("Id : " + repositoryInfo.getId());
+		Tool.printAndLog("Cmis Version Supported : " + repositoryInfo.getCmisVersionSupported());
+		Tool.printAndLog("Description : " + repositoryInfo.getDescription());
+		Tool.printAndLog("Latest Change log token : " + repositoryInfo.getLatestChangeLogToken());
+		Tool.printAndLog("Name : " + repositoryInfo.getName());
+		Tool.printAndLog("Principal ID of authenticated user : " + repositoryInfo.getPrincipalIdAnonymous());
+		Tool.printAndLog("Principal ID for unauthenticated user " + repositoryInfo.getPrincipalIdAnyone());
+		Tool.printAndLog("Product Name : " + repositoryInfo.getProductName());
+		Tool.printAndLog("Product Version : " + repositoryInfo.getProductVersion());
+		Tool.printAndLog("Root Folder Id : " + repositoryInfo.getRootFolderId());
+		Tool.printAndLog("URL of a web interface for this repository : " + repositoryInfo.getThinClientUri());
+		Tool.printAndLog("Vendor Name : " + repositoryInfo.getVendorName());
 		printACLCapabilities(repositoryInfo);
-		System.out.println("******************************************************");
+		Tool.printAndLog("******************************************************");
 	}
 
 	public static void printACLCapabilities(RepositoryInfo repositoryInfo) {
-		System.out.println("\n----------------------------------------------------------");
-		System.out.println("ACL Capabilities");
+		Tool.printAndLog("\n----------------------------------------------------------");
+		Tool.printAndLog("ACL Capabilities");
 		AclCapabilities aclCapabilities = repositoryInfo.getAclCapabilities();
 
 		List<PermissionDefinition> permissionDefinitions = aclCapabilities.getPermissions();
 
 		for (PermissionDefinition permissionDefinition : permissionDefinitions) {
-			System.out.println(permissionDefinition.getId() + " " + permissionDefinition.getDescription());
+			Tool.printAndLog(permissionDefinition.getId() + " " + permissionDefinition.getDescription());
 		}
-		System.out.println("----------------------------------------------------------");
+		Tool.printAndLog("----------------------------------------------------------");
 	}
 
 	public static void main(String args[]) {

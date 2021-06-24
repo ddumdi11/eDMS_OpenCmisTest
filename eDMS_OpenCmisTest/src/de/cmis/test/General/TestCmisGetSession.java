@@ -9,6 +9,8 @@ import org.apache.chemistry.opencmis.client.runtime.SessionFactoryImpl;
 import org.apache.chemistry.opencmis.commons.SessionParameter;
 import org.apache.chemistry.opencmis.commons.enums.BindingType;
 
+import de.cmis.test.Tool;
+
 public class TestCmisGetSession {
 
 	public static Session getSession(String repositoryId, String serverURL) {
@@ -30,6 +32,6 @@ public class TestCmisGetSession {
 		String serverURL = "http://localhost:8089/chemistry-opencmis-server-inmemory-1.1.0/atom11";
 		Session session = getSession(repositoryId, serverURL);
 
-		System.out.println(session.getRepositoryInfo().getName());
+		Tool.printAndLog(session.getRepositoryInfo().getName());
 	}
 }

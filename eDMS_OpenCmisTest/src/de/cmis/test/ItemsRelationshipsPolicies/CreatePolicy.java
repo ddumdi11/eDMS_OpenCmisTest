@@ -9,6 +9,7 @@ import org.apache.chemistry.opencmis.client.api.Policy;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.PropertyIds;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CreatePolicy {
@@ -25,11 +26,11 @@ public class CreatePolicy {
 
 		Policy policy = (Policy) session.getObject(policyId);
 
-		System.out.println("Created By : " + policy.getCreatedBy());
-		System.out.println("Description : " + policy.getDescription());
-		System.out.println("Name : " + policy.getName());
-		System.out.println("Policy Text : " + policy.getPolicyText());
-		System.out.println("Policy Id : " + policy.getId());
+		Tool.printAndLog("Created By : " + policy.getCreatedBy());
+		Tool.printAndLog("Description : " + policy.getDescription());
+		Tool.printAndLog("Name : " + policy.getName());
+		Tool.printAndLog("Policy Text : " + policy.getPolicyText());
+		Tool.printAndLog("Policy Id : " + policy.getId());
 
 	}
 

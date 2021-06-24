@@ -8,6 +8,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.client.api.Tree;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CheckDescendantsSupport {
@@ -17,7 +18,7 @@ public class CheckDescendantsSupport {
 		for (Tree<FileableCmisObject> obj : objects) {
 			FileableCmisObject fileableObj = obj.getItem();
 
-			System.out.println(space + fileableObj.getName());
+			Tool.printAndLog(space + fileableObj.getName());
 			printHierarchy(obj.getChildren(), " " + space);
 		}
 	}
@@ -30,7 +31,7 @@ public class CheckDescendantsSupport {
 		boolean isGetDescendantsSupported = repoInfo.getCapabilities().isGetDescendantsSupported();
 
 		if (!isGetDescendantsSupported) {
-			System.out.println("Repository do not support descendants");
+			Tool.printAndLog("Repository do not support descendants");
 			return;
 		}
 
@@ -38,7 +39,7 @@ public class CheckDescendantsSupport {
 
 		List<Tree<FileableCmisObject>> fileableCmisObjects = rootFolder.getDescendants(-1);
 
-		System.out.println(rootFolder.getName());
+		Tool.printAndLog(rootFolder.getName());
 		printHierarchy(fileableCmisObjects, " ");
 
 	}

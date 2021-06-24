@@ -7,6 +7,7 @@ import org.apache.chemistry.opencmis.client.api.FolderType;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.definitions.PropertyDefinition;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class TestCmisGetPropertiesOfFolderType {
@@ -24,7 +25,7 @@ public class TestCmisGetPropertiesOfFolderType {
 
 		for (String key : propertyDefintions.keySet()) {
 			PropertyDefinition propDefinition = propertyDefintions.get(key);
-			System.out.println(propDefinition);
+			Tool.printAndLog(propDefinition.toString());
 		}
 
 	}

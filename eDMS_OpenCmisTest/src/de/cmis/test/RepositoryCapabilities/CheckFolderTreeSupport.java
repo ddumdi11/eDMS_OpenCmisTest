@@ -8,6 +8,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.client.api.Tree;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CheckFolderTreeSupport {
@@ -17,7 +18,7 @@ public class CheckFolderTreeSupport {
 		for (Tree<FileableCmisObject> obj : objects) {
 			FileableCmisObject fileableObj = obj.getItem();
 
-			System.out.println(space + fileableObj.getName());
+			Tool.printAndLog(space + fileableObj.getName());
 			Folder folder = (Folder) fileableObj;
 
 			printHierarchy(folder.getFolderTree(-1), " " + space);
@@ -33,7 +34,7 @@ public class CheckFolderTreeSupport {
 		boolean isFolderTreeSupported = repoInfo.getCapabilities().isGetFolderTreeSupported();
 
 		if (!isFolderTreeSupported) {
-			System.out.println("Folder tree capability is not supported");
+			Tool.printAndLog("Folder tree capability is not supported");
 			return;
 		}
 

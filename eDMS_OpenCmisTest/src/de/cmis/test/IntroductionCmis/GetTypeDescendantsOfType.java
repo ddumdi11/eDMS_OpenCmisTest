@@ -6,6 +6,7 @@ import org.apache.chemistry.opencmis.client.api.ObjectType;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.client.api.Tree;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetTypeDescendantsOfType {
@@ -14,7 +15,7 @@ public class GetTypeDescendantsOfType {
 
 		for (Tree<ObjectType> objType : objectTypes) {
 			ObjectType objectType = objType.getItem();
-			System.out.println(space + objectType.getDisplayName());
+			Tool.printAndLog(space + objectType.getDisplayName());
 
 			printTypes(objType.getChildren(), "  " + space);
 		}

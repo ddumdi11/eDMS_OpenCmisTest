@@ -11,6 +11,8 @@ import org.apache.chemistry.opencmis.client.runtime.SessionFactoryImpl;
 import org.apache.chemistry.opencmis.commons.SessionParameter;
 import org.apache.chemistry.opencmis.commons.enums.BindingType;
 
+import de.cmis.test.Tool;
+
 public class TestCmisGetRepositories {
 
 	public static List<Repository> getRepositories(String serverURL) {
@@ -33,7 +35,7 @@ public class TestCmisGetRepositories {
 
 		for (Repository repository : repositories) {
 			Session session = repository.createSession();
-			System.out.println(repository.getId() + " " + session.getRepositoryInfo().getName());
+			Tool.printAndLog(repository.getId() + " " + session.getRepositoryInfo().getName());
 		}
 	}
 }

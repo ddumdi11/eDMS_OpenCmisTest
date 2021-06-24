@@ -7,6 +7,8 @@ import java.util.List;
 import org.apache.chemistry.opencmis.commons.data.CmisExtensionElement;
 import org.apache.chemistry.opencmis.commons.impl.dataobjects.CmisExtensionElementImpl;
 
+import de.cmis.test.Tool;
+
 public class CreateExtension {
 
 	private static void printExtensions(List<CmisExtensionElement> extensions, String space) {
@@ -17,10 +19,10 @@ public class CreateExtension {
 			if (extensionChildren == null || extensionChildren.isEmpty()) {
 				String name = extension.getName();
 				String value = extension.getValue();
-				System.out.println(space + name + " : " + value);
+				Tool.printAndLog(space + name + " : " + value);
 
 			} else {
-				System.out.println(space + extension.getName());
+				Tool.printAndLog(space + extension.getName());
 				printExtensions(extensionChildren, space + " ");
 			}
 		}

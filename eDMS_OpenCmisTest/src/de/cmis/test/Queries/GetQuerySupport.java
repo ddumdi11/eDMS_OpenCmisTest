@@ -6,6 +6,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.enums.CapabilityQuery;
 import org.apache.chemistry.opencmis.commons.impl.json.parser.JSONParseException;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetQuerySupport {
@@ -16,10 +17,10 @@ public class GetQuerySupport {
 		CapabilityQuery queryCapability = session.getRepositoryInfo().getCapabilities().getQueryCapability();
 
 		if (queryCapability == null) {
-			System.out.println("Repository don't support querys");
+			Tool.printAndLog("Repository don't support querys");
 			return;
 		}
-		System.out.println("Query capability supported");
-		System.out.println("Query capability : " + queryCapability);
+		Tool.printAndLog("Query capability supported");
+		Tool.printAndLog("Query capability : " + queryCapability);
 	}
 }

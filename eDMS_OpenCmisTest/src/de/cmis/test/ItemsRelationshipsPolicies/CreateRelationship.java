@@ -11,6 +11,7 @@ import org.apache.chemistry.opencmis.client.api.Relationship;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.PropertyIds;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CreateRelationship {
@@ -34,11 +35,11 @@ public class CreateRelationship {
 		String sourceName = relationship.getSource().getName();
 		String targetName = relationship.getTarget().getName();
 
-		System.out.println("createdBy : " + createdBy);
-		System.out.println("creationDate : " + creationDate);
-		System.out.println("description : " + description);
-		System.out.println("sourceName : " + sourceName);
-		System.out.println("targetName : " + targetName);
+		Tool.printAndLog("createdBy : " + createdBy);
+		Tool.printAndLog("creationDate : " + creationDate);
+		Tool.printAndLog("description : " + description);
+		Tool.printAndLog("sourceName : " + sourceName);
+		Tool.printAndLog("targetName : " + targetName);
 
 	}
 

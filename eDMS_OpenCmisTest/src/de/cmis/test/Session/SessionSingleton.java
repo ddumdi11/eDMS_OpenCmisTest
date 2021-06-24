@@ -12,6 +12,8 @@ import org.apache.chemistry.opencmis.commons.SessionParameter;
 import org.apache.chemistry.opencmis.commons.enums.BindingType;
 import org.apache.chemistry.opencmis.commons.exceptions.CmisConnectionException;
 
+import de.cmis.test.Tool;
+
 public class SessionSingleton {
 
 	private static SessionSingleton instance; // vor Zugriff von außen geschützt und statisch
@@ -53,7 +55,7 @@ public class SessionSingleton {
 			binding = OCS_CONST_BINDING + bindingType;
 		}
 		
-		System.out.println("Binding: " + binding);
+		Tool.printAndLog("Binding: " + binding);
 
 		Session session = null;
 
@@ -77,9 +79,9 @@ public class SessionSingleton {
 		List<Repository> repositories = sessionFactory.getRepositories(parameters);
 		Repository defaultRepository = null;
 		if (repositories != null && repositories.size() > 0) {
-			System.out.println("Found (" + repositories.size() + ") repositories");
+			Tool.printAndLog("Found (" + repositories.size() + ") repositories");
 			defaultRepository = repositories.get(0);
-			System.out.println("Info about the first OpenCmisServer repo [ID=" + defaultRepository.getId() + "][name="
+			Tool.printAndLog("Info about the first OpenCmisServer repo [ID=" + defaultRepository.getId() + "][name="
 					+ defaultRepository.getName() + "][CMIS ver supported="
 					+ defaultRepository.getCmisVersionSupported() + "]");
 		} else {
@@ -93,7 +95,7 @@ public class SessionSingleton {
 		// connections.put(connectionName, session);
 
 		// Rückmeldung, dass die Session erzeugt wurde
-		System.out.println("Die Session wurde erzeugt!");
+		Tool.printAndLog("Die Session wurde erzeugt!");
 
 		// Rückgabe
 		return session;
@@ -134,7 +136,7 @@ public class SessionSingleton {
 		session = sessionFactory.createSession(parameters);
 
 		// Rückmeldung, dass die Session erzeugt wurde
-		System.out.println("Die Session wurde erzeugt!");
+		Tool.printAndLog("Die Session wurde erzeugt!");
 
 		// Rückgabe
 		return session;

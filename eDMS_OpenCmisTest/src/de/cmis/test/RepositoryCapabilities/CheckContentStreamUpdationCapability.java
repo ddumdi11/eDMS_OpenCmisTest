@@ -4,6 +4,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 import org.apache.chemistry.opencmis.commons.enums.CapabilityContentStreamUpdates;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CheckContentStreamUpdationCapability {
@@ -17,13 +18,13 @@ public class CheckContentStreamUpdationCapability {
 				.getContentStreamUpdatesCapability();
 
 		if (capabilityContentStreamUpdates == null) {
-			System.out.println("Repository is not providing any value");
+			Tool.printAndLog("Repository is not providing any value");
 		} else if (capabilityContentStreamUpdates == CapabilityContentStreamUpdates.NONE) {
-			System.out.println("Content stream will not be updated");
+			Tool.printAndLog("Content stream will not be updated");
 		} else if (capabilityContentStreamUpdates == CapabilityContentStreamUpdates.ANYTIME) {
-			System.out.println("Content stream can be updated at any time");
+			Tool.printAndLog("Content stream can be updated at any time");
 		} else if (capabilityContentStreamUpdates == CapabilityContentStreamUpdates.PWCONLY) {
-			System.out.println("Content stream can be updated only when the document is checked out");
+			Tool.printAndLog("Content stream can be updated only when the document is checked out");
 		}
 
 	}

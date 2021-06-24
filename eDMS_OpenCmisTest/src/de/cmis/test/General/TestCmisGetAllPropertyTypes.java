@@ -6,6 +6,7 @@ import org.apache.chemistry.opencmis.client.api.Folder;
 import org.apache.chemistry.opencmis.client.api.Property;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class TestCmisGetAllPropertyTypes {
@@ -20,9 +21,9 @@ public class TestCmisGetAllPropertyTypes {
 
 		List<Property<?>> props = folder.getProperties();
 
-		System.out.println("Display Name|type|value");
+		Tool.printAndLog("Display Name|type|value");
 		for (Property<?> prop : props) {
-			System.out.println(prop.getDisplayName() + "|" + prop.getType() + "|" + prop.getValue());
+			Tool.printAndLog(prop.getDisplayName() + "|" + prop.getType() + "|" + prop.getValue());
 		}
 
 	}

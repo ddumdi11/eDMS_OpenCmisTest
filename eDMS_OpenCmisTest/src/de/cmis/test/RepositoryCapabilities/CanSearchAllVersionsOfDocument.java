@@ -3,6 +3,7 @@ package de.cmis.test.RepositoryCapabilities;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CanSearchAllVersionsOfDocument {
@@ -15,11 +16,11 @@ public class CanSearchAllVersionsOfDocument {
 		Boolean isAllVersionsSearchable = repoInfo.getCapabilities().isAllVersionsSearchableSupported();
 
 		if (isAllVersionsSearchable == null) {
-			System.out.println("Repository is not providing this value");
+			Tool.printAndLog("Repository is not providing this value");
 		} else if (isAllVersionsSearchable) {
-			System.out.println("You can search all the versions of a document");
+			Tool.printAndLog("You can search all the versions of a document");
 		} else {
-			System.out.println("You can't search all the versions");
+			Tool.printAndLog("You can't search all the versions");
 		}
 	}
 

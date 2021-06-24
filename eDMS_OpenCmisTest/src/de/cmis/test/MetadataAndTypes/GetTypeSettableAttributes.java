@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.NewTypeSettableAttributes;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetTypeSettableAttributes {
@@ -29,18 +30,18 @@ public class GetTypeSettableAttributes {
 		boolean canSetQueryable = settableAttributes.canSetQueryable();
 		boolean canSetQueryName = settableAttributes.canSetQueryName();
 
-		System.out.println("canSetControllableAcl : " + canSetControllableAcl);
-		System.out.println("canSetControllablePolicy : " + canSetControllablePolicy);
-		System.out.println("canSetCreatable : " + canSetCreatable);
-		System.out.println("canSetDescription : " + canSetDescription);
-		System.out.println("canSetDisplayName : " + canSetDisplayName);
-		System.out.println("canSetFileable : " + canSetFileable);
-		System.out.println("canSetFulltextIndexed : " + canSetFulltextIndexed);
-		System.out.println("canSetId : " + canSetId);
-		System.out.println("canSetIncludedInSupertypeQuery : " + canSetIncludedInSupertypeQuery);
-		System.out.println("canSetLocalName : " + canSetLocalName);
-		System.out.println("canSetLocalNamespace : " + canSetLocalNamespace);
-		System.out.println("canSetQueryable : " + canSetQueryable);
-		System.out.println("canSetQueryName : " + canSetQueryName);
+		Tool.printAndLog("canSetControllableAcl : " + canSetControllableAcl);
+		Tool.printAndLog("canSetControllablePolicy : " + canSetControllablePolicy);
+		Tool.printAndLog("canSetCreatable : " + canSetCreatable);
+		Tool.printAndLog("canSetDescription : " + canSetDescription);
+		Tool.printAndLog("canSetDisplayName : " + canSetDisplayName);
+		Tool.printAndLog("canSetFileable : " + canSetFileable);
+		Tool.printAndLog("canSetFulltextIndexed : " + canSetFulltextIndexed);
+		Tool.printAndLog("canSetId : " + canSetId);
+		Tool.printAndLog("canSetIncludedInSupertypeQuery : " + canSetIncludedInSupertypeQuery);
+		Tool.printAndLog("canSetLocalName : " + canSetLocalName);
+		Tool.printAndLog("canSetLocalNamespace : " + canSetLocalNamespace);
+		Tool.printAndLog("canSetQueryable : " + canSetQueryable);
+		Tool.printAndLog("canSetQueryName : " + canSetQueryName);
 	}
 }

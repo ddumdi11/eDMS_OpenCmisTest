@@ -16,6 +16,8 @@ import org.apache.chemistry.opencmis.client.runtime.SessionFactoryImpl;
 import org.apache.chemistry.opencmis.commons.SessionParameter;
 import org.apache.chemistry.opencmis.commons.enums.BindingType;
 
+import de.cmis.test.Tool;
+
 public class GetPropertiesOfFirstDocumentInRootFolder {
 
 	public static List<Repository> getRepositories(String serverURL) {
@@ -42,13 +44,13 @@ public class GetPropertiesOfFirstDocumentInRootFolder {
 			}
 
 			Document document = (Document) cmisObject;
-			System.out.println("Name des zuerst gefundenen Dokuments: " + document.getName() + "\n");
+			Tool.printAndLog("Name des zuerst gefundenen Dokuments: " + document.getName() + "\n");
 
 			List<Property<?>> properties = document.getProperties();
 
 			for (Property property : properties) {
 				if (property.getId().startsWith("cmis:"))
-					System.out.println(property.getId() + " " + property.getValueAsString());
+					Tool.printAndLog(property.getId() + " " + property.getValueAsString());
 			}
 			return; // Return bewirkt, daß die Schleife nach dem ersten Fund abbricht!
 		}

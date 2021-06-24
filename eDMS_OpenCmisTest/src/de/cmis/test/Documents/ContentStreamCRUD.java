@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.enums.CapabilityContentStreamUpdates;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class ContentStreamCRUD {
@@ -16,16 +17,16 @@ public class ContentStreamCRUD {
 				.getContentStreamUpdatesCapability();
 
 		if (capabilityContentStreamUpdates == null) {
-			System.out.println("Repository do not provide this value");
+			Tool.printAndLog("Repository do not provide this value");
 		} else if (CapabilityContentStreamUpdates.NONE == capabilityContentStreamUpdates) {
-			System.out.println("Content stream may never be updated.");
+			Tool.printAndLog("Content stream may never be updated.");
 		} else if (CapabilityContentStreamUpdates.ANYTIME == capabilityContentStreamUpdates) {
-			System.out.println("Content stream can be updated any time.");
+			Tool.printAndLog("Content stream can be updated any time.");
 		} else if (CapabilityContentStreamUpdates.PWCONLY == capabilityContentStreamUpdates) {
-			System.out.println(
+			Tool.printAndLog(
 					"Content stream is updated only when the document is checked out. PWC stands for Private Working Copy.");
 		} else {
-			System.out.println("It is not implemented as per the CMIS Specification");
+			Tool.printAndLog("It is not implemented as per the CMIS Specification");
 		}
 	}
 

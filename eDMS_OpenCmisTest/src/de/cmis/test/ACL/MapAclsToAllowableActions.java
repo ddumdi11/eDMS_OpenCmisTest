@@ -10,6 +10,7 @@ import org.apache.chemistry.opencmis.client.runtime.OperationContextImpl;
 import org.apache.chemistry.opencmis.commons.PropertyIds;
 import org.apache.chemistry.opencmis.commons.data.PermissionMapping;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class MapAclsToAllowableActions {
@@ -54,7 +55,7 @@ public class MapAclsToAllowableActions {
 
 			PermissionMapping permMapping = permissionMappings.get(key);
 
-			System.out.println(key + " : " + permMapping.getPermissions());
+			Tool.printAndLog(key + " : " + permMapping.getPermissions());
 
 		}
 

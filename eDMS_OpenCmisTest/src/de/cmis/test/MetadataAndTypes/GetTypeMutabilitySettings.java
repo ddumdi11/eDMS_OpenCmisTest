@@ -6,6 +6,7 @@ import org.apache.chemistry.opencmis.client.api.Folder;
 import org.apache.chemistry.opencmis.client.api.ObjectType;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetTypeMutabilitySettings {
@@ -20,8 +21,8 @@ public class GetTypeMutabilitySettings {
 		boolean canDelete = objectType.getTypeMutability().canDelete();
 		boolean canUpdate = objectType.getTypeMutability().canUpdate();
 
-		System.out.println("canCreate : " + canCreate);
-		System.out.println("canDelete : " + canDelete);
-		System.out.println("canUpdate : " + canUpdate);
+		Tool.printAndLog("canCreate : " + canCreate);
+		Tool.printAndLog("canDelete : " + canDelete);
+		Tool.printAndLog("canUpdate : " + canUpdate);
 	}
 }

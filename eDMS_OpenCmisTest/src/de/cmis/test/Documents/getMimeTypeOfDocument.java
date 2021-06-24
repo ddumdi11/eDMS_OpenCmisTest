@@ -6,6 +6,7 @@ import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.ContentStream;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class getMimeTypeOfDocument {
@@ -18,13 +19,13 @@ public class getMimeTypeOfDocument {
 		ContentStream contentStream = document.getContentStream();
 
 		if (contentStream == null) {
-			System.out.println("There is no content stream associated with this document");
+			Tool.printAndLog("There is no content stream associated with this document");
 			return;
 		}
 
 		String mimeType = contentStream.getMimeType();
 
-		System.out.println("mimeType : " + mimeType);
+		Tool.printAndLog("mimeType : " + mimeType);
 
 	}
 

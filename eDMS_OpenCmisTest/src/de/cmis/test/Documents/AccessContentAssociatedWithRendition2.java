@@ -8,6 +8,7 @@ import org.apache.chemistry.opencmis.client.api.Rendition;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.ContentStream;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class AccessContentAssociatedWithRendition2 {
@@ -22,7 +23,7 @@ public class AccessContentAssociatedWithRendition2 {
 		List<Rendition> renditions = document.getRenditions();
 
 		if (renditions == null) {
-			System.out.println("No renditions are existed for this object");
+			Tool.printAndLog("No renditions are existed for this object");
 			return;
 		}
 

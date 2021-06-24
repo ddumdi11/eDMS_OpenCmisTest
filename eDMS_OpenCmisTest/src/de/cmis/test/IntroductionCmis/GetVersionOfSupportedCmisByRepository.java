@@ -4,6 +4,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 import org.apache.chemistry.opencmis.commons.enums.CmisVersion;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetVersionOfSupportedCmisByRepository {
@@ -14,7 +15,7 @@ public class GetVersionOfSupportedCmisByRepository {
 		RepositoryInfo repoInfo = session.getRepositoryInfo();
 
 		CmisVersion cmisVersion = repoInfo.getCmisVersion();
-		System.out.println("cmisVersion supported : " + cmisVersion);
+		Tool.printAndLog("cmisVersion supported : " + cmisVersion);
 
 	}
 

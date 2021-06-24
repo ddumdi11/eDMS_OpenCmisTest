@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class TestUnfilingSupport {
@@ -16,11 +17,11 @@ public class TestUnfilingSupport {
 		boolean isUnfilingSupprted = session.getRepositoryInfo().getCapabilities().isUnfilingSupported();
 
 		if (!isUnfilingSupprted) {
-			System.out.println("unfiling documents are not supported");
+			Tool.printAndLog("unfiling documents are not supported");
 			return;
 		}
 
-		System.out.println("unfiling doucments are supported by the repository");
+		Tool.printAndLog("unfiling doucments are supported by the repository");
 
 	}
 }

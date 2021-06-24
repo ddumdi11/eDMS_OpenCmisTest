@@ -9,6 +9,7 @@ import org.apache.chemistry.opencmis.client.api.ObjectType;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.definitions.PropertyDefinition;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class ApplyConstraintsOnProperty {
@@ -16,17 +17,17 @@ public class ApplyConstraintsOnProperty {
 	public static void printPropertyDefinitions(Map<String, PropertyDefinition<?>> propertyDefinitions) {
 
 		for (String key : propertyDefinitions.keySet()) {
-			System.out.println("\n\nGeneric Constraints for the property : " + key);
-			System.out.println("************************************************");
+			Tool.printAndLog("\n\nGeneric Constraints for the property : " + key);
+			Tool.printAndLog("************************************************");
 
 			PropertyDefinition<?> propertyDefinition = propertyDefinitions.get(key);
 
 			boolean isRequired = propertyDefinition.isRequired();
 			List<?> choices = propertyDefinition.getChoices();
 
-			System.out.println("isRequired : " + isRequired);
-			System.out.println("isOpenChoice : " + propertyDefinition.isOpenChoice());
-			System.out.println("choices : " + choices);
+			Tool.printAndLog("isRequired : " + isRequired);
+			Tool.printAndLog("isOpenChoice : " + propertyDefinition.isOpenChoice());
+			Tool.printAndLog("choices : " + choices);
 		}
 	}
 

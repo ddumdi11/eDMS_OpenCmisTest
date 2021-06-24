@@ -3,6 +3,7 @@ package de.cmis.test.RepositoryCapabilities;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetVendorNameProductNameProductVersionOfRepository {
@@ -16,9 +17,9 @@ public class GetVendorNameProductNameProductVersionOfRepository {
 		String productName = repoInfo.getProductName();
 		String productVersion = repoInfo.getProductVersion();
 
-		System.out.println("vendorName : " + vendorName);
-		System.out.println("productName : " + productName);
-		System.out.println("productVersion : " + productVersion);
+		Tool.printAndLog("vendorName : " + vendorName);
+		Tool.printAndLog("productName : " + productName);
+		Tool.printAndLog("productVersion : " + productVersion);
 	}
 
 }

@@ -7,6 +7,7 @@ import org.apache.chemistry.opencmis.client.api.CmisObject;
 import org.apache.chemistry.opencmis.client.api.Relationship;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CheckIfRelationshipExists {
@@ -20,12 +21,12 @@ public class CheckIfRelationshipExists {
 
 		List<Relationship> relationShips = cmisObject.getRelationships();
 		if (relationShips == null) {
-			System.out.println("No relation ships exist");
+			Tool.printAndLog("No relation ships exist");
 			return;
 		}
 
 		for (Relationship relationship : relationShips) {
-			System.out.println(relationship);
+			Tool.printAndLog(relationship.toString());
 		}
 
 	}

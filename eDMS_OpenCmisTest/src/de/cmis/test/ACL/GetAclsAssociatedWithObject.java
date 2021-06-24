@@ -12,6 +12,7 @@ import org.apache.chemistry.opencmis.commons.data.Ace;
 import org.apache.chemistry.opencmis.commons.data.Acl;
 import org.apache.chemistry.opencmis.commons.enums.CapabilityAcl;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetAclsAssociatedWithObject {
@@ -48,10 +49,10 @@ public class GetAclsAssociatedWithObject {
 		List<String> permissions = ace.getPermissions();
 		org.apache.chemistry.opencmis.commons.data.Principal principal = ace.getPrincipal();
 
-		System.out.println("User '" + principal.getId() + "' has below permissions");
+		Tool.printAndLog("User '" + principal.getId() + "' has below permissions");
 
 		for (String perm : permissions) {
-			System.out.println(perm);
+			Tool.printAndLog(perm);
 		}
 	}
 
@@ -72,7 +73,7 @@ public class GetAclsAssociatedWithObject {
 		CapabilityAcl aclCapabilities = session.getRepositoryInfo().getCapabilities().getAclCapability();
 
 		if (aclCapabilities == null || aclCapabilities == CapabilityAcl.NONE) {
-			System.out.println("Reposiotry do not support acls");
+			Tool.printAndLog("Reposiotry do not support acls");
 			return;
 		}
 

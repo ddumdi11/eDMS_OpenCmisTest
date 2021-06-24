@@ -7,6 +7,7 @@ import org.apache.chemistry.opencmis.commons.data.CreatablePropertyTypes;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 import org.apache.chemistry.opencmis.commons.enums.PropertyType;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CheckAllowablePropertyTypesWhileCreationOrUpdatingObjectTypeDefinitions {
@@ -23,7 +24,7 @@ public class CheckAllowablePropertyTypesWhileCreationOrUpdatingObjectTypeDefinit
 		System.out
 				.println("Following are the available property types, while creating or updating property definitions");
 		for (PropertyType propertyType : propertyTypes) {
-			System.out.println(propertyType);
+			Tool.printAndLog(propertyType.toString());
 		}
 	}
 

@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.chemistry.opencmis.client.api.Folder;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetParentsOfFolder {
@@ -19,7 +20,7 @@ public class GetParentsOfFolder {
 		List<Folder> folders = document.getParents();
 
 		for (Folder folder : folders) {
-			System.out.println(folder.getPath());
+			Tool.printAndLog(folder.getPath());
 		}
 
 	}

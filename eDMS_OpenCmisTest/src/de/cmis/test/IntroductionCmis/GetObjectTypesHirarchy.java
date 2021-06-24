@@ -6,6 +6,7 @@ import org.apache.chemistry.opencmis.client.api.ObjectType;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.client.api.Tree;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetObjectTypesHirarchy {
@@ -26,7 +27,7 @@ public class GetObjectTypesHirarchy {
 				builder.append("parentType : ").append(parentType.getId());
 			}
 
-			System.out.println(builder.toString());
+			Tool.printAndLog(builder.toString());
 			printTypeAndParentType(typeTree.getChildren());
 		}
 

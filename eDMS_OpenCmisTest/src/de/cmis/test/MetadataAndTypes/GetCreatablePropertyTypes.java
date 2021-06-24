@@ -7,6 +7,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.CreatablePropertyTypes;
 import org.apache.chemistry.opencmis.commons.enums.PropertyType;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetCreatablePropertyTypes {
@@ -20,7 +21,7 @@ public class GetCreatablePropertyTypes {
 		Set<PropertyType> propTypes = creatablePropertyTypes.canCreate();
 
 		for (PropertyType prop : propTypes) {
-			System.out.println(prop);
+			Tool.printAndLog(prop.toString());
 		}
 
 	}

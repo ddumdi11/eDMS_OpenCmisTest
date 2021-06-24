@@ -8,6 +8,7 @@ import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Rendition;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetRenditionAttributes2 {
@@ -28,18 +29,18 @@ public class GetRenditionAttributes2 {
 		String title = rendition.getTitle();
 		long width = rendition.getWidth();
 
-		System.out.println("bigHeight : " + bigHeight);
-		System.out.println("bigLength : " + bigLength);
-		System.out.println("bigWidth : " + bigWidth);
-		System.out.println("contentURL : " + contentURL);
-		System.out.println("height : " + height);
-		System.out.println("kind : " + kind);
-		System.out.println("length : " + length);
-		System.out.println("mimeType : " + mimeType);
-		System.out.println("documentId : " + documentId);
-		System.out.println("streamId : " + streamId);
-		System.out.println("title : " + title);
-		System.out.println("width : " + width);
+		Tool.printAndLog("bigHeight : " + bigHeight);
+		Tool.printAndLog("bigLength : " + bigLength);
+		Tool.printAndLog("bigWidth : " + bigWidth);
+		Tool.printAndLog("contentURL : " + contentURL);
+		Tool.printAndLog("height : " + height);
+		Tool.printAndLog("kind : " + kind);
+		Tool.printAndLog("length : " + length);
+		Tool.printAndLog("mimeType : " + mimeType);
+		Tool.printAndLog("documentId : " + documentId);
+		Tool.printAndLog("streamId : " + streamId);
+		Tool.printAndLog("title : " + title);
+		Tool.printAndLog("width : " + width);
 
 	}
 
@@ -52,7 +53,7 @@ public class GetRenditionAttributes2 {
 		List<Rendition> renditions = document.getRenditions();
 
 		if (renditions == null) {
-			System.out.println("No renditions are existed for this object");
+			Tool.printAndLog("No renditions are existed for this object");
 			return;
 		}
 

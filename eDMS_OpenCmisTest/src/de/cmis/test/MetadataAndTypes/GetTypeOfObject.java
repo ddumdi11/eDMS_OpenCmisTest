@@ -6,6 +6,7 @@ import org.apache.chemistry.opencmis.client.api.Folder;
 import org.apache.chemistry.opencmis.client.api.ObjectType;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetTypeOfObject {
@@ -18,11 +19,11 @@ public class GetTypeOfObject {
 		String localName = objectType.getLocalName();
 		String queryName = objectType.getQueryName();
 
-		System.out.println("description = " + description);
-		System.out.println("displayName = " + displayName);
-		System.out.println("id = " + id);
-		System.out.println("localName = " + localName);
-		System.out.println("queryName = " + queryName);
+		Tool.printAndLog("description = " + description);
+		Tool.printAndLog("displayName = " + displayName);
+		Tool.printAndLog("id = " + id);
+		Tool.printAndLog("localName = " + localName);
+		Tool.printAndLog("queryName = " + queryName);
 	}
 
 	public static void main(String args[]) throws IOException {

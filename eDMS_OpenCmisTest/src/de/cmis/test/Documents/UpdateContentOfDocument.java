@@ -10,6 +10,7 @@ import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.ContentStream;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class UpdateContentOfDocument {
@@ -19,7 +20,7 @@ public class UpdateContentOfDocument {
 
 		Document document = (Document) session.getObjectByPath("/07_S_Verweis.docx");
 
-		System.out.println("Content stream length before updating : " + document.getContentStreamLength());
+		Tool.printAndLog("Content stream length before updating : " + document.getContentStreamLength());
 
 		File inputFile = new File("./src/com/sample/util/Files/Hardware 10_1_2020.docx");
 		String mimeType = Files.probeContentType(inputFile.toPath());
@@ -32,7 +33,7 @@ public class UpdateContentOfDocument {
 		}
 
 		document.refresh();
-		System.out.println("Content stream length after updating : " + document.getContentStreamLength());
+		Tool.printAndLog("Content stream length after updating : " + document.getContentStreamLength());
 
 	}
 }

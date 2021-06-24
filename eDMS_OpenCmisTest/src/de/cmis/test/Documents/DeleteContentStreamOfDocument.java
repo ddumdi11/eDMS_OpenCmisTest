@@ -15,6 +15,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.client.runtime.repository.ObjectFactoryImpl;
 import org.apache.chemistry.opencmis.commons.data.ContentStream;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class DeleteContentStreamOfDocument {
@@ -39,9 +40,9 @@ public class DeleteContentStreamOfDocument {
 		ContentStream contentStream = document.getContentStream();
 
 		if (contentStream == null) {
-			System.out.println("*************************");
-			System.out.println("Content stream is not associated with the document");
-			System.out.println("*************************");
+			Tool.printAndLog("*************************");
+			Tool.printAndLog("Content stream is not associated with the document");
+			Tool.printAndLog("*************************");
 			return;
 		}
 
@@ -56,8 +57,8 @@ public class DeleteContentStreamOfDocument {
 				System.out.print(str);
 			}
 		} catch (IOException e) {
-			System.out.println("Error occurred while processing the file content");
-			System.out.println(e.getMessage());
+			Tool.printAndLog("Error occurred while processing the file content");
+			Tool.printAndLog(e.getMessage());
 		}
 
 	}
@@ -76,10 +77,10 @@ public class DeleteContentStreamOfDocument {
 
 		setContentStream(document, new File(localFile));
 
-		System.out.println("Printing the contents of the document " + localFile);
+		Tool.printAndLog("Printing the contents of the document " + localFile);
 		readTheContentsOfTheDocument(document);
 
-		System.out.println("\nDeleting the content stream associated with this document");
+		Tool.printAndLog("\nDeleting the content stream associated with this document");
 		document.deleteContentStream(true);
 
 		readTheContentsOfTheDocument(document);

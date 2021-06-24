@@ -9,6 +9,7 @@ import org.apache.chemistry.opencmis.client.runtime.OperationContextImpl;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 import org.apache.chemistry.opencmis.commons.enums.CapabilityOrderBy;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CheckOrderByCapability {
@@ -21,11 +22,11 @@ public class CheckOrderByCapability {
 		CapabilityOrderBy capabilityOrderBy = repoInfo.getCapabilities().getOrderByCapability();
 
 		if (capabilityOrderBy == null) {
-			System.out.println("Ordering is not supported");
+			Tool.printAndLog("Ordering is not supported");
 			return;
 		}
 
-		System.out.println(capabilityOrderBy);
+		Tool.printAndLog(capabilityOrderBy.toString());
 
 		Folder rootFolder = session.getRootFolder();
 
@@ -37,7 +38,7 @@ public class CheckOrderByCapability {
 
 		printChildren(rootFolder, ascContext);
 
-		System.out.println("\n************************************\n");
+		Tool.printAndLog("\n************************************\n");
 		printChildren(rootFolder, descContext);
 	}
 
@@ -45,7 +46,7 @@ public class CheckOrderByCapability {
 		ItemIterable<CmisObject> cmisObjects = rootFolder.getChildren(context);
 
 		for (CmisObject cmisObject : cmisObjects) {
-			System.out.println(cmisObject.getName());
+			Tool.printAndLog(cmisObject.getName());
 		}
 	}
 }

@@ -3,6 +3,7 @@ package de.cmis.test.IntroductionCmis;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetObjectIdOfRootFolder {
@@ -14,7 +15,7 @@ public class GetObjectIdOfRootFolder {
 
 		String rootFolderId = repoInfo.getRootFolderId();
 
-		System.out.println("rootFolderId : " + rootFolderId);
+		Tool.printAndLog("rootFolderId : " + rootFolderId);
 
 	}
 

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.chemistry.opencmis.client.api.Folder;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CreateFolder {
@@ -23,7 +24,7 @@ public class CreateFolder {
 
 		Folder folder = rootFolder.createFolder(properties);
 
-		System.out.println("Name Of the Folder " + folder.getName());
-		System.out.println("Path Of the Folder " + folder.getPaths().get(0));
+		Tool.printAndLog("Name Of the Folder " + folder.getName());
+		Tool.printAndLog("Path Of the Folder " + folder.getPaths().get(0));
 	}
 }

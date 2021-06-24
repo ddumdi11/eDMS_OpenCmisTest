@@ -4,6 +4,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;
 import org.apache.chemistry.opencmis.commons.enums.CapabilityRenditions;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CheckRenditionSupport {
@@ -16,13 +17,13 @@ public class CheckRenditionSupport {
 		CapabilityRenditions renditionsCapability = repoInfo.getCapabilities().getRenditionsCapability();
 
 		if (renditionsCapability == null) {
-			System.out.println("Repository is not providing this value");
+			Tool.printAndLog("Repository is not providing this value");
 		} else if (CapabilityRenditions.NONE == renditionsCapability) {
-			System.out.println("Repository does not expose renditions at all");
+			Tool.printAndLog("Repository does not expose renditions at all");
 		} else if (CapabilityRenditions.READ == renditionsCapability) {
-			System.out.println("Renditions are provided by the repository and readable by the client");
+			Tool.printAndLog("Renditions are provided by the repository and readable by the client");
 		} else {
-			System.out.println("Other value is written, which is not supported by repository");
+			Tool.printAndLog("Other value is written, which is not supported by repository");
 		}
 	}
 

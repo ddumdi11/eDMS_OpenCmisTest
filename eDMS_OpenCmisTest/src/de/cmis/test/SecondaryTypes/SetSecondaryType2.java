@@ -11,6 +11,7 @@ import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.PropertyIds;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class SetSecondaryType2 {
@@ -19,16 +20,16 @@ public class SetSecondaryType2 {
 		String contactUs = document.getPropertyValue("abc:contactUs");
 		String help = document.getPropertyValue("abc:help");
 
-		System.out.println("name : " + document.getName());
-		System.out.println("id : " + document.getId());
-		System.out.println("version series id : " + document.getVersionSeriesId());
-		System.out.println("Version Label : " + document.getVersionLabel());
-		System.out.println("Checked out by : " + document.getVersionSeriesCheckedOutBy());
-		System.out.println("Content length : " + document.getContentStreamLength());
+		Tool.printAndLog("name : " + document.getName());
+		Tool.printAndLog("id : " + document.getId());
+		Tool.printAndLog("version series id : " + document.getVersionSeriesId());
+		Tool.printAndLog("Version Label : " + document.getVersionLabel());
+		Tool.printAndLog("Checked out by : " + document.getVersionSeriesCheckedOutBy());
+		Tool.printAndLog("Content length : " + document.getContentStreamLength());
 
-		System.out.println("contact us : " + contactUs);
-		System.out.println("Help : " + help);
-		System.out.println("confidentialValue : " + document.getPropertyValue("abc:confidentialLevel"));
+		Tool.printAndLog("contact us : " + contactUs);
+		Tool.printAndLog("Help : " + help);
+		Tool.printAndLog("confidentialValue : " + document.getPropertyValue("abc:confidentialLevel"));
 	}
 
 	public static void main(String args[]) throws IOException {

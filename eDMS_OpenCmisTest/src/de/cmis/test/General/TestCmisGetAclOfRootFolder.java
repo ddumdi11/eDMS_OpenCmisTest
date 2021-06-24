@@ -7,6 +7,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.Ace;
 import org.apache.chemistry.opencmis.commons.data.Acl;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class TestCmisGetAclOfRootFolder {
@@ -19,14 +20,14 @@ public class TestCmisGetAclOfRootFolder {
 		Acl acl = folder.getAcl();
 
 		if (acl == null) {
-			System.out.println("No acl is associated with root folder");
+			Tool.printAndLog("No acl is associated with root folder");
 			return;
 		}
 
 		List<Ace> aces = acl.getAces();
 
 		for (Ace ace : aces) {
-			System.out.println(ace.getPermissions());
+			Tool.printAndLog(ace.getPermissions().toString());
 		}
 
 	}

@@ -9,6 +9,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.client.api.Tree;
 import org.apache.chemistry.opencmis.commons.definitions.PropertyDefinition;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetMetadata2 {
@@ -19,12 +20,12 @@ public class GetMetadata2 {
 
 		Map<String, PropertyDefinition<?>> propertyDefinitions = objType.getPropertyDefinitions();
 
-		System.out.println("Property Definitions for " + objType.getId());
-		System.out.println("****************************************************");
+		Tool.printAndLog("Property Definitions for " + objType.getId());
+		Tool.printAndLog("****************************************************");
 		for (String key : propertyDefinitions.keySet()) {
 			PropertyDefinition<?> definition = propertyDefinitions.get(key);
 
-			System.out.println("id : " + definition.getId() + ", displayName : " + definition.getDisplayName()
+			Tool.printAndLog("id : " + definition.getId() + ", displayName : " + definition.getDisplayName()
 					+ ", propertyType : " + definition.getPropertyType() + ", defaultValue : "
 					+ definition.getDefaultValue());
 

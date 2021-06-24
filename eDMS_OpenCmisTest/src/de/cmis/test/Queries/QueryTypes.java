@@ -9,6 +9,7 @@ import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.PropertyData;
 import org.apache.chemistry.opencmis.commons.impl.json.parser.JSONParseException;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class QueryTypes {
@@ -23,11 +24,11 @@ public class QueryTypes {
 		for (QueryResult queryResult : queryResults) {
 			List<PropertyData<?>> propertiesData = queryResult.getProperties();
 
-			System.out.println("*********************************************************");
+			Tool.printAndLog("*********************************************************");
 			for (PropertyData<?> propData : propertiesData) {
-				System.out.println(propData.getId() + " : " + propData.getValues());
+				Tool.printAndLog(propData.getId() + " : " + propData.getValues());
 			}
-			System.out.println("*********************************************************\n\n");
+			Tool.printAndLog("*********************************************************\n\n");
 		}
 
 	}

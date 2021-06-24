@@ -14,6 +14,7 @@ import org.apache.chemistry.opencmis.client.api.ObjectId;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.ContentStream;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class Versioning {
@@ -44,12 +45,12 @@ public class Versioning {
 	}
 
 	private static void printDocumentDetails(Document document) {
-		System.out.println("name : " + document.getName());
-		System.out.println("id : " + document.getId());
-		System.out.println("version series id : " + document.getVersionSeriesId());
-		System.out.println("Version Label : " + document.getVersionLabel());
-		System.out.println("Checked out by : " + document.getVersionSeriesCheckedOutBy());
-		System.out.println("Content length : " + document.getContentStreamLength());
+		Tool.printAndLog("name : " + document.getName());
+		Tool.printAndLog("id : " + document.getId());
+		Tool.printAndLog("version series id : " + document.getVersionSeriesId());
+		Tool.printAndLog("Version Label : " + document.getVersionLabel());
+		Tool.printAndLog("Checked out by : " + document.getVersionSeriesCheckedOutBy());
+		Tool.printAndLog("Content length : " + document.getContentStreamLength());
 	}
 
 	private static Document updateAndCheckInDocument(Session session, ObjectId objectId) throws IOException {
@@ -76,25 +77,25 @@ public class Versioning {
 		
 		Document document = createDocument(session);
 
-		System.out.println("*****************************************");
-		System.out.println("Before checking in the document");
-		System.out.println("*****************************************");
+		Tool.printAndLog("*****************************************");
+		Tool.printAndLog("Before checking in the document");
+		Tool.printAndLog("*****************************************");
 
 		printDocumentDetails(document);
 
 		boolean isVersionable = document.isVersionable();
 
 		if (!isVersionable) {
-			System.out.println("Document is not versionable");
+			Tool.printAndLog("Document is not versionable");
 			return;
 		}
 
 		ObjectId objectId = document.checkOut();
 		Document checkdInDocument = updateAndCheckInDocument(session, objectId);
 
-		System.out.println("*****************************************");
-		System.out.println("After checking in the document");
-		System.out.println("*****************************************");
+		Tool.printAndLog("*****************************************");
+		Tool.printAndLog("After checking in the document");
+		Tool.printAndLog("*****************************************");
 		printDocumentDetails(checkdInDocument);
 
 	}

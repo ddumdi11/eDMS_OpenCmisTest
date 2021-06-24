@@ -7,6 +7,7 @@ import org.apache.chemistry.opencmis.client.api.ObjectType;
 import org.apache.chemistry.opencmis.client.api.RelationshipType;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CheckAllowedSourceAndTargetTypes {
@@ -15,7 +16,7 @@ public class CheckAllowedSourceAndTargetTypes {
 
 	private static void printTypes(List<ObjectType> allowedTypes) {
 		for (ObjectType objectType : allowedTypes) {
-			System.out.println(objectType);
+			Tool.printAndLog(objectType.toString());
 		}
 	}
 
@@ -27,10 +28,10 @@ public class CheckAllowedSourceAndTargetTypes {
 		List<ObjectType> allowedSourceTypes = relationShipType.getAllowedSourceTypes();
 		List<ObjectType> allowedTargetTypes = relationShipType.getAllowedTargetTypes();
 
-		System.out.println("Allowed source types");
+		Tool.printAndLog("Allowed source types");
 		printTypes(allowedSourceTypes);
 
-		System.out.println("Allowed target types");
+		Tool.printAndLog("Allowed target types");
 		printTypes(allowedTargetTypes);
 
 	}

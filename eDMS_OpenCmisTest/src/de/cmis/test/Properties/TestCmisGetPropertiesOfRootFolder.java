@@ -6,6 +6,7 @@ import org.apache.chemistry.opencmis.client.api.Folder;
 import org.apache.chemistry.opencmis.client.api.Property;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class TestCmisGetPropertiesOfRootFolder {
@@ -18,9 +19,9 @@ public class TestCmisGetPropertiesOfRootFolder {
 
 		List<Property<?>> properties = folder.getProperties();
 
-		System.out.println("propertyId | displayName | value");
+		Tool.printAndLog("propertyId | displayName | value");
 		for (Property<?> property : properties) {
-			System.out.println(property.getId() + " | " + property.getDisplayName() + " | " + property.getValue());
+			Tool.printAndLog(property.getId() + " | " + property.getDisplayName() + " | " + property.getValue());
 		}
 
 	}

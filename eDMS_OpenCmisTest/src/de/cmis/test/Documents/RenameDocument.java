@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class RenameDocument {
@@ -17,19 +18,19 @@ public class RenameDocument {
 		// Dokumente löschen, falls vorhanden
 		try {
 			Document toDeleteDoc = (Document) session.getObjectByPath("/a.txt");
-			System.out.println("Dokument vorhanden + wird gelöscht.");
+			Tool.printAndLog("Dokument vorhanden + wird gelöscht.");
 			toDeleteDoc.delete();
-			System.out.println("Dokument erfolgreich gelöscht.");
+			Tool.printAndLog("Dokument erfolgreich gelöscht.");
 		} catch (Exception e) {
-			System.out.println("Dokument entweder nicht vorhanden oder ein anderer Fehler ...");
+			Tool.printAndLog("Dokument entweder nicht vorhanden oder ein anderer Fehler ...");
 		}
 		try {
 			Document toDeleteDoc = (Document) session.getObjectByPath("/b.txt");
-			System.out.println("Dokument vorhanden + wird gelöscht.");
+			Tool.printAndLog("Dokument vorhanden + wird gelöscht.");
 			toDeleteDoc.delete();
-			System.out.println("Dokument erfolgreich gelöscht.");
+			Tool.printAndLog("Dokument erfolgreich gelöscht.");
 		} catch (Exception e) {
-			System.out.println("Dokument entweder nicht vorhanden oder ein anderer Fehler ...");
+			Tool.printAndLog("Dokument entweder nicht vorhanden oder ein anderer Fehler ...");
 		}
 
 		// Dokument erstellen, was umbenannt werden soll
@@ -39,24 +40,24 @@ public class RenameDocument {
 
 		Document doc2Create = session.getRootFolder().createDocument(props, null, null);
 
-		System.out.println("Name Of the Document " + doc2Create.getName());
-		System.out.println("Path Of the Document " + doc2Create.getPaths().get(0));
+		Tool.printAndLog("Name Of the Document " + doc2Create.getName());
+		Tool.printAndLog("Path Of the Document " + doc2Create.getPaths().get(0));
 
 		// Dokument finden
 		Document document = (Document) session.getObjectByPath("/a.txt");
 
-		System.out.println("Before renaming : ");
-		System.out.println("name : " + document.getName());
-		System.out.println("path : " + document.getPaths().get(0));
+		Tool.printAndLog("Before renaming : ");
+		Tool.printAndLog("name : " + document.getName());
+		Tool.printAndLog("path : " + document.getPaths().get(0));
 
 		Map<String, String> properties = new HashMap<>();
 		properties.put("cmis:name", "b.txt");
 
 		document = (Document) document.updateProperties(properties);
 
-		System.out.println("After renaming : ");
-		System.out.println("name : " + document.getName());
-		System.out.println("path : " + document.getPaths().get(0));
+		Tool.printAndLog("After renaming : ");
+		Tool.printAndLog("name : " + document.getName());
+		Tool.printAndLog("path : " + document.getPaths().get(0));
 
 	}
 }

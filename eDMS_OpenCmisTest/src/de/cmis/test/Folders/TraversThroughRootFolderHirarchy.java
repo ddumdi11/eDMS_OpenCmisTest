@@ -14,6 +14,8 @@ import org.apache.chemistry.opencmis.client.runtime.SessionFactoryImpl;
 import org.apache.chemistry.opencmis.commons.SessionParameter;
 import org.apache.chemistry.opencmis.commons.enums.BindingType;
 
+import de.cmis.test.Tool;
+
 public class TraversThroughRootFolderHirarchy {
 
 	public static List<Repository> getRepositories(String serverURL) {
@@ -31,7 +33,7 @@ public class TraversThroughRootFolderHirarchy {
 	}
 
 	public static void printFolder(Folder folder, String tab) {
-		System.out.println(tab + folder.getName());
+		Tool.printAndLog(tab + folder.getName());
 
 		ItemIterable<CmisObject> cmisObjects = folder.getChildren();
 
@@ -39,7 +41,7 @@ public class TraversThroughRootFolderHirarchy {
 			if (cmisObject instanceof Folder) {
 				printFolder((Folder) cmisObject, tab + " ");
 			}
-			System.out.println(" " + tab + cmisObject.getName());
+			Tool.printAndLog(" " + tab + cmisObject.getName());
 		}
 
 	}

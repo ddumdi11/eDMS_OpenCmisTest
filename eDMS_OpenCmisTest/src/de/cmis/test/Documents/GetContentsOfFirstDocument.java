@@ -18,6 +18,8 @@ import org.apache.chemistry.opencmis.commons.SessionParameter;
 import org.apache.chemistry.opencmis.commons.data.ContentStream;
 import org.apache.chemistry.opencmis.commons.enums.BindingType;
 
+import de.cmis.test.Tool;
+
 public class GetContentsOfFirstDocument {
 
 	public static List<Repository> getRepositories(String serverURL) {
@@ -58,7 +60,7 @@ public class GetContentsOfFirstDocument {
 			if (contentStreamLength == 0)
 				continue;
 
-			System.out.println("Name Of the Document : " + document.getName());
+			Tool.printAndLog("Name Of the Document : " + document.getName());
 			printDocumentContent(document);
 			return;
 		}
@@ -68,7 +70,7 @@ public class GetContentsOfFirstDocument {
 	private static void printDocumentContent(Document document) {
 		ContentStream contentStream = document.getContentStream();
 		String fileNameOfTheStream = contentStream.getFileName();
-		System.out.println("file name of the stream : " + fileNameOfTheStream);
+		Tool.printAndLog("file name of the stream : " + fileNameOfTheStream);
 		try (InputStream inputStream = contentStream.getStream()) {
 			int data;
 

@@ -7,6 +7,7 @@ import org.apache.chemistry.opencmis.client.api.ObjectType;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.client.api.Tree;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class GetMetadata1 {
@@ -15,7 +16,7 @@ public class GetMetadata1 {
 
 		ObjectType objType = types.getItem();
 
-		System.out.println(space + "[id : " + objType.getId() + "], [Display Name : " + objType.getDisplayName()
+		Tool.printAndLog(space + "[id : " + objType.getId() + "], [Display Name : " + objType.getDisplayName()
 				+ "], [Description : " + objType.getDescription() + "]");
 
 		List<Tree<ObjectType>> objTypes = types.getChildren();

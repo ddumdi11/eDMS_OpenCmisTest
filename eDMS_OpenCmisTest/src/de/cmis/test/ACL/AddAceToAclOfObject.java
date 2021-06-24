@@ -13,6 +13,7 @@ import org.apache.chemistry.opencmis.commons.PropertyIds;
 import org.apache.chemistry.opencmis.commons.data.Ace;
 import org.apache.chemistry.opencmis.commons.data.Acl;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class AddAceToAclOfObject {
@@ -49,10 +50,10 @@ public class AddAceToAclOfObject {
 		List<String> permissions = ace.getPermissions();
 		org.apache.chemistry.opencmis.commons.data.Principal principal = ace.getPrincipal();
 
-		System.out.println("User '" + principal.getId() + "' has below permissions");
+		Tool.printAndLog("User '" + principal.getId() + "' has below permissions");
 
 		for (String perm : permissions) {
-			System.out.println(perm);
+			Tool.printAndLog(perm);
 		}
 	}
 

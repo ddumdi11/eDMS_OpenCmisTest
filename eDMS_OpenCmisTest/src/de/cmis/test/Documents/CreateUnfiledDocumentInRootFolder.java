@@ -8,6 +8,7 @@ import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.ObjectId;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CreateUnfiledDocumentInRootFolder {
@@ -18,27 +19,27 @@ public class CreateUnfiledDocumentInRootFolder {
 		// Dokument löschen, falls vorhanden
 		try {
 			Document toDeleteDoc = (Document) session.getObjectByPath("/unfiledDocument.txt");
-			System.out.println("Dokument vorhanden + wird gelöscht.");
+			Tool.printAndLog("Dokument vorhanden + wird gelöscht.");
 			toDeleteDoc.delete();
-			System.out.println("Dokument erfolgreich gelöscht.");
+			Tool.printAndLog("Dokument erfolgreich gelöscht.");
 		} catch (Exception e) {
-			System.out.println("Dokument entweder nicht vorhanden oder ein anderer Fehler ...");
+			Tool.printAndLog("Dokument entweder nicht vorhanden oder ein anderer Fehler ...");
 		}
 
 		boolean isUnfilingSupprted = session.getRepositoryInfo().getCapabilities().isUnfilingSupported();
 
 		if (!isUnfilingSupprted) {
-			System.out.println("unfiling documents are not supported");
+			Tool.printAndLog("unfiling documents are not supported");
 			return;
 		}
 
-		System.out.println("unfiling doucments are supported by the repository");
+		Tool.printAndLog("unfiling doucments are supported by the repository");
 
 		Map<String, String> properties = new HashMap<>();
 		properties.put("cmis:objectTypeId", "cmis:document");
 		properties.put("cmis:name", "unfiledDocument.txt");
 
 		ObjectId objId = session.createDocument(properties, null, null, null);
-		System.out.println("Id : " + objId.getId());
+		Tool.printAndLog("Id : " + objId.getId());
 	}
 }
