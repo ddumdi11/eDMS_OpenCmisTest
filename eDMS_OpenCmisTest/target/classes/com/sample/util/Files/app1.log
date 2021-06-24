@@ -1,0 +1,19 @@
+base id=CMIS_ITEM
+id=cmis:item
+display Name=Item
+description=Item
+local name=cmis:item
+local namespace=http://apache.org
+query name=cmis:item
+parent id=null
+is controllable ACL=true
+is controllable policy=true
+is creatable=true
+is fileable=true
+is fulltext indexed=false
+is included in supertype query=true
+is queryable=true
+property definitions={}
+typeMutability=TypeMutability [canCreate=true
+canUpdate=false
+canDelete=false][extensions=null]][extensions=null]

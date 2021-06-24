@@ -1,0 +1,19 @@
+Diese Basis = CMIS_ITEM
+id = cmis wieder
+Auch Anzeigename =
+Auch Beschreibung =
+Lokaler Name = wieder cmis
+Lokaler Namespace = http: //apache.org
+Abfragename = erneut cmis
+Eltern-ID = NULL
+ACL ist kontrollierbar = wahr
+Richtlinie ist kontrollierbar = wahr
+es erstellbar = wahr
+es archivierbar = wahr
+Volltext ist indiziert = falsch
+ist in SUPERTYPE-Abfrage enthalten = true
+es abfragbar = wahr
+Eigenschaftsdefinitionen = {}
+typeMutability TypeMutability = [canCreate = true
+canUpdate = false
+canDelete = false] [Erweiterungen = null]] [Erweiterungen = null] 

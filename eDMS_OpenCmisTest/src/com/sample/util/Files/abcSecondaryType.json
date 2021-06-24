@@ -1,0 +1,54 @@
+{
+    "baseId": "cmis:secondary",
+    "controllableACL": false,
+    "controllablePolicy": false,
+    "creatable": false,
+    "description": "Builtin InMemory type definition abc:secondaryType",
+    "displayName": "abc:secondaryType",
+    "fileable": false,
+    "fulltextIndexed": false,
+    "id": "abc:secondaryType",
+    "includedInSupertypeQuery": true,
+    "localName": "abc:secondaryType",
+    "localNamespace": "http://apache.org",
+    "parentId": "cmis:secondary",
+    "propertyDefinitions": {
+        "abc:contactUs": {
+            "cardinality": "single",
+            "description": "Contact us for any queries",
+            "displayName": "Secondary String Property",
+            "id": "abc:contactUs",
+            "inherited": false,
+            "localName": "abc:contactUs",
+            "openChoice": false,
+            "orderable": true,
+            "propertyType": "string",
+            "queryName": "abc:contactUs",
+            "queryable": true,
+            "required": false,
+            "updatability": "readwrite"
+        },
+        "abc:help": {
+            "cardinality": "single",
+            "description": "You will get documentation here",
+            "displayName": "Secondary Integer Property",
+            "id": "abc:help",
+            "inherited": false,
+            "localName": "abc:help",
+            "openChoice": false,
+            "orderable": true,
+            "propertyType": "string",
+            "queryName": "abc:help",
+            "queryable": true,
+            "required": true,
+            "updatability": "readwrite"
+        }
+    },
+    "queryName": "abc:secondaryType",
+    "queryable": true,
+    "typeMutability": {
+        "create": true,
+        "delete": true,
+        "update": true
+    }
+}

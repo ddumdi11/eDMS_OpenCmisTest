@@ -1,0 +1,40 @@
+{
+ "id": "myOrgFolder",
+ "localName": "myOrg:folder",
+ "localName": "myOrg:folder",
+ "localNamespace": "local",
+ "displayName": "OrganizationSpecificFolder",
+ "queryName": "myOrg:folder",
+ "description": "Organization SpecificFolder",
+ "baseId": "cmis:folder",
+ "creatable": true,
+ "fileable": true,
+ "queryable": true,
+ "fulltextIndexed": false,
+ "includedInSupertypeQuery": true,
+ "controllablePolicy": true,
+ "controllableACL": true,
+ "parentId": "cmis:folder",
+ "typeMutability": {
+  "create": true,
+  "update": false,
+  "delete": false
+ }
+ "propertyDefinitions": {
+  "organization:name": {
+   "id": "organization:name",
+   "localName": "organization:name",
+   "displayName": "OrganizationDisplayName",
+   "queryName": "organization:name",
+   "description": "Organization specific name",
+   "propertyType": "string",
+   "cardinality": "single",
+   "updatability": "readwrite",
+   "inherited": false,
+   "required": true,
+   "queryable": true,
+   "orderable": true
+  }
+ }
+
+}

@@ -1,0 +1,52 @@
+{
+ "id": "abc:policy",
+ "localName": "abc:policy",
+ "localNamespace": "http:\/\/apache.org",
+ "displayName": "abc organization Policy",
+ "queryName": "abc:policy",
+ "description": "Builtin InMemory type definition abc:policy",
+ "baseId": "cmis:policy",
+ "parentId": "cmis:policy",
+ "creatable": true,
+ "fileable": false,
+ "queryable": true,
+ "fulltextIndexed": false,
+ "includedInSupertypeQuery": true,
+ "controllablePolicy": true,
+ "controllableACL": true,
+ "typeMutability": {
+  "create": true,
+  "update": true,
+  "delete": true
+ },
+ "propertyDefinitions": {
+  "abc:typeOfPolicy": {
+   "id": "abc:typeOfPolicy",
+   "localName": "abc:typeOfPolicy",
+   "displayName": "Type of policy",
+   "queryName": "abc:typeOfPolicy",
+   "description": "type of the policy",
+   "propertyType": "string",
+   "cardinality": "single",
+   "updatability": "readwrite",
+   "inherited": false,
+   "required": true,
+   "queryable": true,
+   "orderable": true
+  },
+  "abc:namespace": {
+   "id": "abc:namespace",
+   "localName": "abc:namespace",
+   "displayName": "Name",
+   "queryName": "abc:namespace",
+   "description": "name space",
+   "propertyType": "string",
+   "cardinality": "single",
+   "updatability": "readwrite",
+   "inherited": false,
+   "required": true,
+   "queryable": true,
+   "orderable": true
+  }
+ }
+}
