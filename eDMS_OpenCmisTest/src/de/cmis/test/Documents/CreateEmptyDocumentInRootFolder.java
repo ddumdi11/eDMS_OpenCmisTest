@@ -1,16 +1,21 @@
 package de.cmis.test.Documents;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
 import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Folder;
 import org.apache.chemistry.opencmis.client.api.Session;
 
+import com.sun.tools.javac.Main;
+
+import de.cmis.test.Tool;
 import de.cmis.test.Session.SessionSingleton;
 
 public class CreateEmptyDocumentInRootFolder {
 
+	
 	public static void main(String args[]) {
 		Session session = SessionSingleton.getInstance().getSession("OpenCmisServer", "atom11");
 
@@ -19,7 +24,7 @@ public class CreateEmptyDocumentInRootFolder {
 		// Dokument löschen, falls vorhanden
 		try {
 			Document toDeleteDoc = (Document) session.getObjectByPath("/emptyDocument.txt");
-			System.out.println("Dokument vorhanden + wird gelöscht.");
+			Tool.printAndLog("Dokument vorhanden + wird gelöscht.");
 			toDeleteDoc.delete();
 			System.out.println("Dokument erfolgreich gelöscht.");
 		} catch (Exception e) {
